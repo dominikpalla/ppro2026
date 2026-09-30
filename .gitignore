@@ -1,0 +1,36 @@
+# OS a IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build & Dependencies
+node_modules/
+dist/
+build/
+bin/
+obj/
+out/
+target/
+*.class
+
+# Python
+__pycache__/
+*.pyc
+.env
+.venv/
+env/
+venv/
+
+# Docker & DB
+data/
+*.log
+docker/data/
+
+# Temporary
+tmp/
+temp/

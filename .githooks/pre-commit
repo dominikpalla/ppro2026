@@ -1,0 +1,25 @@
+#!/bin/sh
+# Git pre-commit hook pro projekt ppro2026 (Zadání A - Ordinace Na Vyhlídce)
+# Kontroluje dodržování zásady "README.md jako jediný zdroj pravdy".
+
+echo ""
+echo "=============================================================="
+echo " [PRE-COMMIT HOOK] Kontrola technické dokumentace a postupu"
+echo "=============================================================="
+
+# Zjištění, zda je README.md součástí aktuálně stageovaných změn
+STAGED_FILES=$(git diff --cached --name-only)
+
+if echo "$STAGED_FILES" | grep -q "^README.md$"; then
+    echo " -> OK: README.md je součástí commitu. Dokumentace a záznam postupu jsou aktualizovány."
+else
+    echo " -> UPOZORNĚNÍ: Provádíte commit, ve kterém NENÍ zahrnuta změna README.md."
+    echo "    Pravidlo projektu vyžaduje udržovat technickou dokumentaci, seznam"
+    echo "    rozhodnutí a záznam o postupu v README.md neustále aktuální!"
+    echo "    Ujistěte se, že provedené změny nevyžadují záznam v dokumentaci."
+fi
+
+echo "=============================================================="
+echo ""
+
+exit 0
